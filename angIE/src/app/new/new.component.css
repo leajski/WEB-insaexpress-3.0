@@ -1,0 +1,34 @@
+
+#mapfrance {
+    height: 700px;
+    width: 100%
+}
+
+.leaderboard{
+    max-height: 66.5vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  
+  .team{
+    > div {
+      padding: 1.2em;
+      cursor: pointer;
+    }
+
+    .team-picture{
+      height: 2.5em;
+    }
+
+    &:hover{
+      background: #e1e1e1;
+    }
+  }
+}
+
+
+.layout {
+     color-bg: #4ca6ff
+   }
+ 
+
+
