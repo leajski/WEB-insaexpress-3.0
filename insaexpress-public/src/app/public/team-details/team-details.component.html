@@ -1,0 +1,29 @@
+<div>
+  <a class="btn btn-primary btn-block mb-3" *ngIf="team" routerLink="/">&lt; Retour au classement</a>
+  <nb-card *ngIf="team" class="team">
+    <nb-card-header><h2 class="text-center">
+      <img [src]="team.picture" class="logo"><br>{{team.name}}<br>
+      <span class="badge badge-primary">{{team.score}} points</span>
+      <span class="badge badge-primary">{{team.distance/1000}}km</span>
+    </h2></nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="achivements col-md-4">
+          <h3 *ngIf="team_achievements.length > 0">Réussites</h3>
+          <div class="row team" *ngFor="let ta of team_achievements">
+            <div class="col-8 col-md-10">{{ta.achievement.name}}</div>
+            <div class="col-4 col-md-2 text-right">{{ta.achievement.points > 0 ? '+' : ''}}{{ta.achievement.points}}
+            </div>
+            <div class="col-12 text-muted">Attribué {{ta.created_at|amTimeAgo}}</div>
+          </div>
+        </div>
+        <div class="col-md-7 offset-md-1">
+          <div style="height: 75vh;"
+               leaflet
+               [leafletOptions]="options"
+               (leafletMapReady)="onMapReady($event)"></div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

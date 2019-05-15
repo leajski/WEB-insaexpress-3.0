@@ -1,0 +1,15 @@
+<div class="header-container"
+     [class.left]="position === 'normal'"
+     [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <div class="logo" (click)="goToHome()"><img src="/assets/logo.png" height="50"></div>
+  </div>
+</div>
+
+<nb-actions
+  size="medium"
+  class="header-container right">
+  <nb-action>
+    <nb-user [menu]="userMenu" [name]="user?.username" [picture]="user?.picture"></nb-user>
+  </nb-action>
+</nb-actions>

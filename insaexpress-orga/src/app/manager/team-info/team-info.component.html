@@ -1,0 +1,14 @@
+<div>
+  <nb-card *ngIf="team" class="team">
+    <nb-card-header><h2>{{team.name}}</h2></nb-card-header>
+    <nb-card-body>
+      <div class="participants">
+        <div class="row participant" *ngFor="let participant of team.participants">
+          <div class="col-12">{{participant.name}}</div>
+          <div class="col-12"><a [href]="'tel:'+participant.phone">{{participant.phone}}</a></div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+  <a class="btn btn-primary btn-block mt-4" routerLink="..">&lt; Retour à l'équipe</a>
+</div>

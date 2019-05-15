@@ -1,0 +1,17 @@
+<div>
+  <div class="btn-group btn-upper-navigation">
+    <button class="btn btn-primary" routerLink="..">
+      <i class="fa fa-left-arrow"></i> Retour
+    </button>
+    <a class="btn btn-primary" [href]="'https://waze.com/ul?ll='+team.latitude+','+team.longitude" target="_blank">
+      Y aller
+    </a>
+  </div>
+  <div style="height: 60vh;"
+       leaflet
+       [leafletOptions]="options"
+       [leafletZoom]="zoom"
+       [leafletCenter]="center"
+       [leafletLayers]="layers">
+  </div>
+</div>

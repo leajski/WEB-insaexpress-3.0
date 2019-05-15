@@ -1,0 +1,26 @@
+.team{
+
+  h2{
+    .logo{
+      height: 2.5em;
+    }
+  }
+
+  .achivements{
+    margin-bottom: 1.75em;
+    > div {
+      padding: 0.5em 0;
+    }
+  }
+
+  .icon-buttons {
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      cursor: pointer;
+      margin: 0 1rem;
+      min-width: 4rem;
+    }
+  }
+}

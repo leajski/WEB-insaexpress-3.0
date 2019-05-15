@@ -1,0 +1,13 @@
+<div class="header-container"
+     [class.left]="position === 'normal'"
+     [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <div class="logo" (click)="goToHome()"><img src="/assets/logo.png" height="60"></div>
+    <div class="logo"><img src="/assets/sponso/sponso1.png" height="70"></div>
+  </div>
+</div>
+
+<nb-actions
+  size="medium"
+  class="header-container right">
+</nb-actions>

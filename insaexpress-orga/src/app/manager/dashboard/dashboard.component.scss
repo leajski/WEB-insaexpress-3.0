@@ -1,0 +1,9 @@
+.logout-small-screens{
+  display: none;
+}
+
+@media(max-width: 399px) {
+  .logout-small-screens{
+    display: block;
+  }
+}

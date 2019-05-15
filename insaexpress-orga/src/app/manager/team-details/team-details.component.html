@@ -1,0 +1,26 @@
+<div>
+  <nb-card *ngIf="team" class="team">
+    <nb-card-header><h2>{{team.name}}<span class="badge badge-primary pull-right">{{team.score}}</span></h2></nb-card-header>
+    <nb-card-body>
+      <div class="achivements">
+        <div class="row team" *ngFor="let ta of team_achievements">
+          <div class="col-6 col-md-8">{{ta.achievement.name}}</div>
+          <div class="col-3 col-md-2 text-center">{{ta.created_at | date:'short':'':'fr'}}</div>
+          <div class="col-3 col-md-2 text-center">{{ta.achievement.points > 0 ? '+' : ''}}{{ta.achievement.points}}</div>
+        </div>
+      </div>
+      <div class="icon-buttons">
+        <button type="button" class="btn btn-primary btn-icon" routerLink="./achievement">
+          <i class="nb-plus-circled"></i>
+        </button>
+        <button type="button" class="btn btn-success btn-icon" routerLink="./position">
+          <i class="nb-location"></i>
+        </button>
+        <button type="button" class="btn btn-danger btn-icon" routerLink="./info">
+          <i class="nb-gear"></i>
+        </button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+  <a class="btn btn-primary btn-block mt-4" *ngIf="team" routerLink="/">&lt; Retour au classement</a>
+</div>

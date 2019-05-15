@@ -1,0 +1,15 @@
+
+// import Nebular Theme System and the default theme
+
+@import 'theme';
+
+// framework component styles which will use your new theme
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/globals'; // or @import '~@nebular/auth/styles/{theme-name}';
+@import '~@nebular/auth/styles/themes/default'; // or @import '~@nebular/auth/styles/{theme-name}';
+
+// install the framework
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global(); // append the install mixin inside of the nb-install
+};

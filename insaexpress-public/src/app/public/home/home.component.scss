@@ -1,0 +1,21 @@
+.leaderboard{
+  @media (min-width: 576px) {
+    max-height: 66.5vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .team{
+    > div {
+      padding: 1.2em;
+      cursor: pointer;
+    }
+
+    .team-picture{
+      height: 2.5em;
+    }
+
+    &:hover{
+      background: #e1e1e1;
+    }
+  }
+}

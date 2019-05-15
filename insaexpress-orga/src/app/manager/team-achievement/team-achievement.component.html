@@ -1,0 +1,20 @@
+<div>
+  <nb-card *ngIf="team && achievements" class="achievements-assign">
+    <nb-card-header><h2>Réussite de {{team.name}}</h2></nb-card-header>
+    <nb-card-body>
+      <div class="achivements">
+        <div class="row achievement" *ngFor="let achievement of achievements" (click)="assign(achievement)">
+          <div class="col-10">{{achievement.name}}</div>
+          <div class="col-2 text-center">{{achievement.points > 0 ? '+' : ''}}{{achievement.points}}</div>
+        </div>
+        <div class="row achievement" routerLink="./create">
+          <div class="col-12 text-center"><i class="nb-plus-circled"></i> Ajouter un motif</div>
+        </div>
+
+      </div>
+    </nb-card-body>
+  </nb-card>
+  <div *ngIf="team && achievements">
+    <a routerLink=".." class="btn btn-warning btn-block mt-4">&lt; Annuler ça !</a>
+  </div>
+</div>

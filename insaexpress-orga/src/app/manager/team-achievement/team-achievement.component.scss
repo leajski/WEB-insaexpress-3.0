@@ -1,0 +1,14 @@
+.achievements-assign{
+  .achivements{
+    .achievement{
+      > div {
+        padding: 1.2em;
+        cursor: pointer;
+      }
+
+      &:hover{
+        background: #e1e1e1;
+      }
+    }
+  }
+}

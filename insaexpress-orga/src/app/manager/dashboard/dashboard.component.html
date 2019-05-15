@@ -1,0 +1,12 @@
+<nb-layout>
+  <nb-layout-header [fixed]="true">
+    <app-header></app-header>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+    <div class="logout-small-screens mt-4 mb-3">
+      <a routerLink="/auth/logout" class="btn btn-warning btn-block"><i class="nb-power"></i> Déconnexion</a>
+    </div>
+  </nb-layout-column>
+</nb-layout>
