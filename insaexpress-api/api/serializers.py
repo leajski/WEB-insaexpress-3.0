@@ -61,3 +61,5 @@ class TeamSerializer(serializers.ModelSerializer):
                   'score', 'disqualified', 'team_achievements',
                   'participants', 'picture', 'last_seen')
 
+
+

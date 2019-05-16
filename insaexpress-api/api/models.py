@@ -9,9 +9,11 @@ from django.utils.translation import ugettext_lazy as _
 from geopy.distance import vincenty
 
 
+
+
 class Team(models.Model):
     name = models.CharField(max_length=150, verbose_name=_('nom d\'équipe'))
-    picture = models.FileField(default="https://vignette.wikia.nocookie.net/lucifer/images/9/97/No_Photo.png/revision/latest?cb=20171213001812&path-prefix=fr", verbose_name=_('logo'))
+    picture = models.ImageField(upload_to='logo/', verbose_name='logo')
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
     distance = models.IntegerField(default=0, verbose_name=_('distance parcourue'), help_text=_('en mètres'))
@@ -101,6 +103,8 @@ class TeamAchievement(models.Model):
     achievement = models.ForeignKey(Achievement, on_delete=models.PROTECT, related_name='team_achievements')
     created_by = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateTimeField(blank=True, auto_now_add=True)
+    picture = models.CharField(max_length=150, default="default", verbose_name=_('nom de la photo'))
+
 
     def __str__(self):
         return "{} a réussi le succès \"{}\" ({} points)".format(self.team.name, self.achievement.name, self.achievement.points)
@@ -125,3 +129,4 @@ def delete_score_on_teams(instance, **kwargs):
     team = instance.team
     team.score = team.compute_score()
     team.save()
+

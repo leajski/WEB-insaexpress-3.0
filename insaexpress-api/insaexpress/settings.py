@@ -27,11 +27,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('ENV', 'development') != 'production'
+#DEBUG = False;
 
-#ALLOWED_HOSTS = os.environ.get('HOST', ['localhost:8000', '127.0.0.1:8000' ,'insaexpress.bde-insa-lyon.fr'])
-ALLOWED_HOSTS = ['localhost','127.0.0.1','insaexpress.bde-insa-lyon.fr']
+ALLOWED_HOSTS = os.environ.get('HOST', 'localhost,insaexpress.bde-insa-lyon.fr,127.0.0.1').split(',')
+#ALLOWED_HOST = ["*"];
 
-CORS_ORIGIN_WHITELIST = os.environ.get('CORS_HOSTS', 'http://localhost:4200,http://localhost:4201,http://www.insaexpress.racing').split(',')
+CORS_ORIGIN_WHITELIST = os.environ.get('CORS_HOSTS', 'localhost:4200,localhost:4201,www.insaexpress.racing').split(',')
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_HOSTS', 'localhost:4200,localhost:4201').split(',')
 
 POSITION_API_KEY = os.environ.get('POSITION_API_KEY', 'HeyCoucou')
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api.apps.ApiConfig',
+    'uploadapp',
 ]
 
 MIDDLEWARE = [
@@ -128,9 +130,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/uploads/'
+MEDIA_URL = '/upload/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+MEDIA_ROOT = os.path.join(BASE_DIR, "upload")
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")

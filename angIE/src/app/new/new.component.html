@@ -9,10 +9,9 @@
 					<h1><a href="">INSA EXPRESS</a></h1>
 					<nav class="links">
 						<ul>
-							<li><a href="#leaderboard">Classement</a></li>
-							<li><a href="#mapfrance">Carte</a></li>
-							<li><a href="#">Défis</a></li>
-							<li><a href="#">Charte du participant</a></li>
+							<li><a href="#">Equipes</a></li>
+							<li><a href="#">Carte</a></li>
+							<li><a href="defis">Défis</a></li>
 						</ul>
 					</nav>
 					<nav class="main">
@@ -80,40 +79,28 @@
 								
 							</header>
 						</section>
+
+
 					
 										
 						<section>
 
 						<!-- Mini Post -->
-								<nb-layout class = "layout">
-								<nb-layout-header>
-									<h1 center>Classement</h1>
-								</nb-layout-header>
-								<nb-layout-column>
-								
-								      	<div class = "leaderboard">
-								      		<nb-list>
-								      			<nb-list-item *ngFor="let team of teams">
-								      				<div ><img [src]="team.picture.url" class="team-picture"></div>
-								      				<div>
-										              {{team.name}}<br><span>a déjà parcouru {{team.distance/1000}}km</span> </div>
-										            <div>{{team.longitude}}pts</div>
+							<article class="post">
+								<h1 center>Classement</h1>
+							
+							      	<div class = "leaderboard">
+							      			<div *ngFor="let team of teams">
+							      				<img [src]="team.picture.url" class="team-picture"> 
+							      				<section id="sidebar"></section>
+							      				<h4>{{team.name}}</h4>
+							      				a déjà parcouru {{team.distance/1000}}km
+							      				<br>{{team.longitude}}pts<br>
 
-
-												</nb-list-item>
-								      		</nb-list>
-								          <div class="row team" *ngFor="let team of teams" (click)="onSelect(team)"
-											    [class.selected]="team === selectedTeam"
-											    (click)="onSelect(team)" >
-								            
-								          </div>
-								         </div>
-								</nb-layout-column>
-								</nb-layout>
-										    
-
-									   
-									<!--	<app-team-detai [team]="selectedTeam"></app-team-detai>-->
+											</div>
+									</div>	
+							         
+							</article>   
 									
 						</section>
 

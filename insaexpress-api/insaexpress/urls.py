@@ -17,12 +17,13 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include
+from django.urls import include, path
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
 from api.views import PublicTeamsViewSet, TeamsViewSet, TeamAchievementsViewSet, AchievementsViewSet, LogoutViews, \
     CurrentUserViews, PositionUpdateViews
+
 
 public_router = routers.DefaultRouter()
 # Model to register a route : router.register(r'urlname', TheModelViewSet)
@@ -42,5 +43,6 @@ urlpatterns = [
     url(r'^manage/', include(router.urls)),
     url(r'^manage/me$', CurrentUserViews.as_view()),
     url(r'^update/$', PositionUpdateViews.as_view()),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('upload/', include('uploadapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

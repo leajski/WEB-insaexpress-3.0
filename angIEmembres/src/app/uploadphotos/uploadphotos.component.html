@@ -1,0 +1,204 @@
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1><a href="">INSA EXPRESS</a></h1>
+					<nav class="links">
+						<ul>
+							<li><a href="#">Equipes</a></li>
+							<li><a href="#">Carte</a></li>
+							<li><a href="defis">Défis</a></li>
+							<li><a href="validerdefis">Valider des défis</a></li>
+							<li><a href="ajoutdefis">Soumettre un défi</a></li>
+						</ul>
+					</nav>
+					<nav class="main">
+						<ul>
+							<li class="search">
+								<a class="fa-search" href="#search">Search</a>
+								<form id="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</li>
+							<li class="menu">
+								<a class="fa-bars" href="#menu">Menu</a>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Menu -->
+				<section id="menu">
+
+					<!-- Search -->
+						<section>
+							<form class="search" method="get" action="#">
+								<input type="text" name="query" placeholder="Search" />
+							</form>
+						</section>
+
+
+					<!-- Actions -->
+						<section>
+							<ul class="actions stacked">
+								<li><a href="#" class="button large fit">Log In</a></li>
+							</ul>
+						</section>
+				</section>
+
+			<!-- Main -->
+				<div id="main">
+
+					<!-- Post -->
+						<article class="post">
+							<header>
+								<div class="title">
+									<h2><a href="single.html">Relève des défis</a></h2>
+								</div>
+								<div class="meta">
+									<time class="published" datetime="2015-11-01">November 1, 2015</time>
+								</div>
+							</header>
+
+							<section>
+								<h3>Selectionne un défi</h3>
+								
+
+									<div class="row gtr-uniform">
+										<div class="col-12">
+											<select name="equipe" id="demo-category">
+												<option value="">- Ton equipe-</option>
+												<option value="lea">Lea</option>
+												<option value="lulu">Lulu</option>
+												<option value="theotime">Theotime</option>
+												<option value="VersMetz">VersMetz</option>
+											</select>
+										</div>
+										<div class="col-12">
+											<select name="defis" id="demo-category">
+												<option value="">- Afficher les défis -</option>
+												<option value="Photo insolite">Photo insolite</option>
+												<option value="Se faire prendre par une famille">Se faire prendre par une famille</option>
+												<option value="Se faire offrir le goûter">Se faire offrir le goûter</option>
+												<option value="Se faire prendre par un tank">Se faire prendre par un tank</option>
+												<option value="Panneau des villes">Panneau des villes</option>
+												<option value="Arrivée sans aides dans les délais">Arrivée sans aides dans les délais</option>
+											</select>
+										</div>
+									</div>
+								<br/>
+							    <br/>
+							    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+							    <input type="file" name="photos" (change)="onChange($event)" />
+							    <br/>
+							    <br/>
+							    <div class="col-12">
+							    	<button type="submit">Valider</button>
+								</div>
+
+							  </form>
+							</section>
+							
+						</article>
+
+						<article class="post">
+							<header>
+								<div class="title">
+									<h2><a href="single.html">Observe les défis</a></h2>
+								</div>
+								<div class="meta">
+									<time class="published" datetime="2015-11-01">November 1, 2015</time>
+								</div>
+							</header>
+							<a href="single.html" class="image featured"><img src="/assets/images/pic01.jpg" alt="" /></a>
+							<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+						
+							
+						</article>
+					
+
+				</div>
+
+			<!-- Sidebar -->
+				<section id="sidebar">
+
+					<!-- Intro -->
+						<section id="intro">
+							<a href="#" class="logo"><img src="/assets/images/insaexpress_logo.png" alt="" /></a>
+							<header>
+								
+							</header>
+						</section>
+
+
+
+					<!-- Mini Posts -->
+						<section>
+							<div class="mini-posts">
+
+								<!-- Mini Post -->
+									<article class="mini-post">
+										
+										<nb-layout>
+										</nb-layout>
+<!--									    <nb-card>
+									      <nb-card-header><h2>Classement</h2></nb-card-header>
+									      <nb-card-body>
+									      	<div class = "leaderboard">
+									      		<nb-list>
+									      			<nb-list-item *ngFor="let team of teams">
+									      				<div ><img [src]="team.picture" class="team-picture"></div>
+									      				<div>
+											              {{team.name}}<br><span>a déjà parcouru {{team.distance/1000}}km</span> </div>
+											            <div>{{team.score}}pts</div>
+														 
+
+
+													</nb-list-item>
+									      		</nb-list>
+									          <div class="row team" *ngFor="let team of teams" (click)="onSelect(team)"
+												    [class.selected]="team === selectedTeam"
+												    (click)="onSelect(team)" >
+									            
+									          </div>
+									         </div>
+									      </nb-card-body>
+									    </nb-card>
+									   
+										<app-team-detai [team]="selectedTeam"></app-team-detai>
+-->
+									</article>
+
+							</div>
+						</section>
+
+					
+
+					<!-- Footer -->
+						<section id="footer">
+							<ul class="icons">
+								<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+								<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+						</section>
+
+				</section>
+
+		</div>
+
+	
+
+</body>
+
+
+
+
+

@@ -11,7 +11,8 @@ from api.serializers import PublicTeamSerializer, TeamSerializer, TeamAchievemen
 
 
 class PublicTeamsViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Team.objects.filter(hidden=False)
+    queryset = Team.objects.all()
+    many = True;
     serializer_class = PublicTeamSerializer
     permission_classes = [AllowAny]
 
@@ -19,13 +20,13 @@ class PublicTeamsViewSet(viewsets.ReadOnlyModelViewSet):
 class TeamsViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [AllowAny]
 
 
 class TeamAchievementsViewSet(viewsets.ModelViewSet):
     queryset = TeamAchievement.objects.all()
     serializer_class = TeamAchievementSerializer
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(created_by_id=self.request.user.id)
@@ -34,7 +35,7 @@ class TeamAchievementsViewSet(viewsets.ModelViewSet):
 class AchievementsViewSet(viewsets.ModelViewSet):
     queryset = Achievement.objects.all().order_by('name')
     serializer_class = AchievementSerializer
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(created_by_id=self.request.user.id)
@@ -86,3 +87,4 @@ class LogoutViews(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
         return Response(request.user.id)
+
